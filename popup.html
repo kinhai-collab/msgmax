@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MsgMax - Settings</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .header h1 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    
+    .header p {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    
+    .content {
+      padding: 20px;
+    }
+    
+    .setting-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .setting-item label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .setting-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    
+    .setting-description {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    
+    .stats {
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    
+    .stats h3 {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+    
+    .footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 11px;
+      opacity: 0.7;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .status {
+      padding: 10px;
+      background: rgba(16, 185, 129, 0.2);
+      border-radius: 6px;
+      text-align: center;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🛡️ MsgMax</h1>
+    <p>Message Safety Checker</p>
+  </div>
+  
+  <div class="content">
+    <div class="status" id="status">
+      ✅ Extension Active
+    </div>
+    
+    <div class="setting-item">
+      <label>
+        <input type="checkbox" id="enabled" checked>
+        <span>Enable Extension</span>
+      </label>
+      <p class="setting-description">
+        Show the "Check Message" button in Gmail compose windows
+      </p>
+    </div>
+    
+    <div class="setting-item">
+      <label>
+        <input type="checkbox" id="autoAnalyze">
+        <span>Auto-Analyze on Send</span>
+      </label>
+      <p class="setting-description">
+        Automatically check messages when you click Send (coming soon)
+      </p>
+    </div>
+    
+    <div class="setting-item">
+      <label>
+        <input type="checkbox" id="showScoreBadge" checked>
+        <span>Show Score Badge</span>
+      </label>
+      <p class="setting-description">
+        Display safety score in extension icon
+      </p>
+    </div>
+    
+    <div class="stats">
+      <h3>📊 Your Stats</h3>
+      <div class="stat-row">
+        <span>Messages Analyzed:</span>
+        <span id="totalAnalyzed">0</span>
+      </div>
+      <div class="stat-row">
+        <span>Risky Messages Caught:</span>
+        <span id="riskyCaught">0</span>
+      </div>
+      <div class="stat-row">
+        <span>Avg Safety Score:</span>
+        <span id="avgScore">-</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>Built with Claude AI</p>
+    <p>v1.0.0</p>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
